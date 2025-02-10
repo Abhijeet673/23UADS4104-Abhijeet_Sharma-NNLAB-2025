@@ -1,6 +1,4 @@
-#Experiment 1 :-
-WAP to implement the Perceptron Learning Algorithm using numpy in Python. Evaluate performance of a single perceptron for NAND and XOR truth tables
-as input dataset.
+Experiment 1 - WAP to implement the Perceptron Learning Algorithm using numpy in Python. Evaluate performance of a single perceptron for NAND and XOR truth tables as input dataset.
 
 The Python program implements the Perceptron Learning Algorithm using NumPy and evaluates the performance of a single perceptron on 
 NAND and XOR truth tables as input datasets.
