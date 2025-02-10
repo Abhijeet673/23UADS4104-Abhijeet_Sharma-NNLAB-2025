@@ -1,4 +1,4 @@
-Experiment 2 - Program to implement a mul-layer perceptron (MLP) network with one hidden layer using numpy in Python using the demostration that it can learn the XOR Boolean funcon.
+Experiment 2 - Program to implement a mul-layer perceptron (MLP) network with one hidden layer using numpy in Python using the demostration that it can learn the XOR Boolean function.
 
 
 The Python program implements a Multi-Layer Perceptron (MLP) using NumPy to learn the XOR Boolean function.
