@@ -28,8 +28,7 @@ class Perceptron:
                 elif y[i]==0 and y_pred==1 :
                     self.weights -= self.learning_rate * X[i]
                     #converged = False
-        # yaha xor ke case me convergence kabhi nhi aega toh ye infinitely chalega so applying the epoch condition
-        # is better.
+       
     def evaluate(self, X, y):
         correct = 0
         for i in range(len(X)):
