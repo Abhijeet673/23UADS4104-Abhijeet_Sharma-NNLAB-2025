@@ -39,16 +39,6 @@ class Perceptron:
         cm = confusion_matrix(y, y_pred)
         return cm
 
-def plot_confusion_matrix(cm, title):
-    plt.figure(figsize=(4, 3))
-    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=["0 (False)", "1 (True)"], yticklabels=["0 (False)", "1 (True)"])
-    plt.xlabel("Predicted Label")
-    plt.ylabel("Actual Label")
-    plt.title(f"Confusion Matrix - {title}")
-    plt.show()
-
-
-
 fun1_X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
 fun1_y = np.array([0, 0, 0, 1])  # fun1 output
 
