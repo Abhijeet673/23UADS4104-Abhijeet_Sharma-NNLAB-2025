@@ -30,4 +30,8 @@ If the actual output is 1 and the predicted output is 0, it adjusts the weights 
 If the actual output is 0 and the predicted output is 1, it decreases the weights.
 
 e. evaluate(self, X, y): This method evaluates the model by making predictions on X, comparing them to the true labels y, and computing the accuracy as the percentage of correct predictions.
+
+<h3>My comments</h3>
+
+To improve the efficiency of the code and computational load, instead of training each perceptron of the hidden layer we can directly give inputs of the prediction of the perceptrons to the final perceptron and in this way we are training only once the final output perceptron. 
  
