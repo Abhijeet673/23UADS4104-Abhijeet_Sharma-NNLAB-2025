@@ -92,6 +92,7 @@ c.) The test set is evaluated at the end of each epoch, and the accuracy is stor
 <br><hr><br>
 
 </ol>
-<h3> My Comment</h3>
+<h3> My Comments</h3>
 
-The model on higher number of epochs combined with lower batch size take a signification amount of time to train but the results are very disappointing although 
+From observing the test accuracy arising from different combinations of batch size and epochs the maximum value (33.89%) is obtained from the combination having batch size and number of epochs at 10. And on minimising the batch size to 1 and maximising the number of epochs to 100 the test accuracy is lowest i.e. 9.58 %. Hence apparently on increasing the number of epochs and reducing the batch size does not necessarily contribute to higher test accuracy rather the optimum values are to be found. 
+<hr>
