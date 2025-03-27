@@ -105,7 +105,7 @@ The model is tested with different hyperparameters :
 <li><b>Import Required Libraries : </b><ul>
 <li>TensorFlow/Keras: Used to build and train the CNN model.</li>
 <li>Matplotlib & NumPy: Used for visualization and numerical operations.</li>
-</ul></li>
+</ul></li><br>
 
 <li><b>Enable GPU Acceleration (if available): </b>Checks if a GPU is available and enables memory growth to optimize training performance.
 </li>
