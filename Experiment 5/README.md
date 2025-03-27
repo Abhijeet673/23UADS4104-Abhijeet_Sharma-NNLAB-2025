@@ -118,12 +118,13 @@ The model is tested with different hyperparameters :
 </li>
 
 <li><b>Defining a Function to Create the CNN Model:</b><ul>a. Creates a CNN model with:
-<li>Two convolutional layers (Conv2D) with ReLU activation.<li>
+<li>Two convolutional layers (Conv2D) with ReLU activation.</li>
 <li>Two max pooling layers (MaxPooling2D) to reduce feature map size.</li>
 <li>A fully connected layer (Dense) with 128 neurons.</li>
 <li>An output layer (Dense) with 10 neurons and softmax activation for classification.</li>
 </ul>
 b. Uses Adam optimizer and sparse categorical cross-entropy loss.
+
 </li>
 
 <li><b>Define a Function to Train and Evaluate the Model</b>
@@ -140,7 +141,7 @@ b. Uses Adam optimizer and sparse categorical cross-entropy loss.
     <li>Effect of Batch Size: Trains the model using batch sizes of 32 and 64.</li>
     <li>Effect of Optimizer: Tests Adam and SGD (Stochastic Gradient Descent)optimizers.</li>
 </ul>
-
+<hr>
 <h3>My Comments</h3>
 <p>1. As per the accuracy result the following observations can be made :-</p>
 
