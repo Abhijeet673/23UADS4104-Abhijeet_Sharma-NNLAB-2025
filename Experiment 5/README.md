@@ -108,14 +108,14 @@ The model is tested with different hyperparameters :
 </ul></li><br>
 
 <li><b>Enable GPU Acceleration (if available): </b>Checks if a GPU is available and enables memory growth to optimize training performance.
-</li>
+</li><br>
 
 <li><b>Load and Preprocess the Fashion MNIST Dataset : </b><ul>
 <li>Loads the Fashion MNIST dataset, which consists of 70,000 images (60,000 for training, 10,000 for testing).</li>
 <li>Normalizes pixel values to the range [0,1] to speed up training.</li>
 <li>Reshapes the images from (28,28) to (28,28,1) to match CNN input format (grayscale images with 1 channel).</li>
 </ul>
-</li>
+</li><br>
 
 <li><b>Defining a Function to Create the CNN Model:</b><ul>a. Creates a CNN model with:
 <li>Two convolutional layers (Conv2D) with ReLU activation.</li>
@@ -126,14 +126,14 @@ The model is tested with different hyperparameters :
 b. Uses Adam optimizer and sparse categorical cross-entropy loss.
 
 </li>
-
+<br>
 <li><b>Define a Function to Train and Evaluate the Model</b>
 <ul>
     <li>Trains the model for 10 epochs.</li>
     <li>Evaluates the model’s final accuracy and loss</strong>.</li>
     <li>Plots accuracy and loss curves for training and validation sets.</li>
 </ul>
-</li>
+</li><br>
 <li><b>Train the Model with Different Hyperparameters</b></li>
 <ul>
     <li>Effect of Filter Size: Tests two different filter sizes: 3×3 and 5×5.</li>
