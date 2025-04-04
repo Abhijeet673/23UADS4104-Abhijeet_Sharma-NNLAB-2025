@@ -5,22 +5,112 @@ classify  MNIST  fashion  dataset.  Demonstrate  the  effect  of  filter  size, 
 batch size and optimization algorithm on model performance. </h4>
 <hr>
 
-<h3>Description of the model:-</h3>
+<h2> Model Description </h2>
 
-<p>This model applies convolutional neural network (CNN) architecture designed for the Fashion MNIST dataset. It consists of four convolutional blocks, each containing two Conv2D layers followed by MaxPooling, Dropout, and Batch Normalization to enhance regularization and stability. The number of filters increases from 64 → 128 → 256 → 512 across the blocks, helping the model learn hierarchical features.
 
-After the convolutional layers, the model has a Flatten layer to convert feature maps into a 1D vector, followed by a 512-neuron Dense layer with ReLU activation. The final output layer consists of 10 neurons with a softmax activation for multi-class classification.</p>
+This project implements a **Convolutional Neural Network (CNN)** using TensorFlow and Keras to classify images from the **Fashion MNIST** dataset. 
+
+
+
+### Dataset
+- **Dataset:** Fashion MNIST (28x28 grayscale images across 10 classes)
+- **Preprocessing:**
+  - Normalized pixel values to [0, 1]
+  - Reshaped to (28, 28, 1)
+  - One-hot encoded the labels
+  - Used 'ImageDataGenerator' for data augmentation:
+
+###  Model Architecture
+
+- **Input Layer:** (28, 28, 1)
+- **Conv Block 1:**
+  - 2 × Conv2D → BatchNorm → ReLU
+  - MaxPooling2D
+  - Dropout
+- **Conv Block 2 (Residual Block):**
+  - 2 × Conv2D → BatchNorm → Add(Shortcut) → ReLU
+  - MaxPooling2D
+  - Dropout
+- **Conv Block 3:**
+  - Conv2D
+  - GlobalAveragePooling2D
+- **Dense Layers:**
+  - Dense(512) → BatchNorm → ReLU → Dropout
+  - Output: Dense(10) with Softmax
+
+
+### Training Hyperparameters
+
+- **Optimizer:** 'Adam' with Exponential Learning Rate Decay
+- **Loss Function:** 'CategoricalCrossentropy' with 'label_smoothing=0.1'
+
+### Evaluation
+
+- Loads the best saved model weights using 'ModelCheckpoint'.
+- Evaluates on the test set
+- Plots training and validation loss and accuracy over epochs
 
 <hr>
 
-<h3>Description of the code:-</h3>
+<h2> Code Description </h2>
 
-The whole code is similar to that used in Experiment 5 except the hyper parameter values and the architecture which has been mentioned in the previous block. 
-<hr>
-<h3>My Comments :-</h3>
+### Dataset
+
+- **Fashion MNIST**: 28x28 grayscale images of fashion items.
+- **Classes**: 10 categories (e.g., T-shirt/top, Trouser, Pullover, etc.)
+- **Preprocessing**:
+  - Normalized pixel values to [0, 1].
+  - Reshaped data to (28, 28, 1) for CNN compatibility.
+  - One-hot encoded labels.
+  - Data augmentation using ImageDataGenerator:
+    - Rotation, width/height shift, zoom, shear, etc.
+
+### Model Architecture
+
+- **Input Layer**: (28, 28, 1)
+- **Conv Block 1**:
+  - 2 × Conv2D + BatchNormalization + ReLU
+  - MaxPooling2D
+  - Dropout(0.3)
+- **Conv Block 2 (with residual)**:
+  - 2 × Conv2D + BatchNormalization + Residual Connection + ReLU
+  - MaxPooling2D
+  - Dropout(0.3)
+- **Conv Block 3**:
+  - 2 × Conv2D + BatchNormalization + ReLU
+  - GlobalAveragePooling2D
+- **Fully Connected Layers**:
+  - Dense(512) + BatchNormalization + ReLU + Dropout(0.6)
+  - Dense(10) with Softmax activation
+
+### Training Strategy
+
+- **Optimizer**: Adam with an **Exponential Decay Learning Rate Schedule**.
+  ```python
+  lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
+      initial_learning_rate=0.001,
+      decay_steps=1000,
+      decay_rate=0.9
+  )
+
+### Training 
+
+- Training of the model using augmented data is carried out.
+- Evaluated the accuracy for validation set for every epoch.
+- Best weights are saved to 'best_model.h5'.
+
+### Evaluation 
+
+- Loads the best weights.
+- Evaluates the final model on the test dataset.
+
+### Visualization 
+
+- **Loss Curve:** Shows train and validation loss.
+- **Accuracy Curve:** Shows train and validation accuracy.
+<h2>My Comments :-</h2>
 
 <ul>
-<li>The maximum test accuracy achieved is 93.67.</li>
-<li>The for loop indicates that the code was meant to run on different combinations of the hyperparameters but contain only the combination which gives best results.<br>
-By observing the enormous number of experiments as can also be seen from "Experiment 5", it is apparent that all the remaining hyperparameter combinations are not improving the results keeping in mind that the time comsumed was considerable. So the rest of the combinations were deprecated from the final code which were present in "Experiment 5" to advoid wasting time.
-<li> Apart from the visible improvements in the accuracy this model also performs better in avoiding overfitting which was present in models.
+<li>The maximum test accuracy achieved is 94.53.</li><br>
+<li>Adding the Batch Normalisation and dropout layers along with applying the data augmentation proved effective in bringing around 95% accuracy.</li><br>
+<li>Additionally in the previous model the gap between the validation and training set was prominent indicating model overtraining which is reduced to a significant extent in this model eventually fixing the problem of model overtraining.</li>
